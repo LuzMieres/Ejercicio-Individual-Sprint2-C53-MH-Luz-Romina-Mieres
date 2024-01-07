@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ejercicio Individual Sprint 2</title>
+</head>
+
+<body>
+    <main>
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl">Ejercicio 1</h2>
+            <div
+                class="w-80 h-80 shadow-black shadow-lg border border-black flex flex-col justify-center items-center mt-2">
+                <div class="w-52 h-52 bg-slate-400 rounded-lg" id="contenedor">
+                    <p id="colorName" class="text-lg font-bold mb-4">Gris</p>
+                </div>
+                <button
+                    class="border border-black shadow-black shadow-lg mt-6 w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                    id="botonChange">Change</button>
+            </div>
+        </div>
+        <div class="flex flex-col items-center mt-5">
+            <h2 class="text-2xl">Ejercicio 2</h2>
+            <div
+                class="w-80 h-80 shadow-black shadow-lg border border-black flex flex-col justify-center items-center mt-2">
+                <div class="w-52 h-52 bg-slate-400 rounded-lg" id="caja"></div>
+            </div>
+            <form class="pt-4" action="">
+                <div>
+                    <label for="text"></label>
+                    <input class="border border-black w-80 h-10" type="text" name="text" id="text">
+                </div>
+                <div class="flex justify-center">
+                    <button
+                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 mt-8 text-2xl font-semibold"
+                        id="reset" type="submit" onclick="enviarFormulario(event)">Reset</button>
+                </div>
+            </form>
+        </div>
+        <article class="mt-5">
+            <h2 class="text-2xl text-center">Ejercicio 3</h2>
+            <div class="flex justify-center gap-5 mt-2">
+                <div
+                    class="w-72 h-80 shadow-black shadow-lg border border-black flex flex-col justify-around items-center">
+                    <form class="flex flex-col items-center" action="">
+                        <legend class="text-xl">Estatura</legend>
+                        <label for="estatura">En centímetros</label>
+                        <input class="border border-black w-60 h-10" type="text" name="estatura" id="estatura">
+                    </form>
+                    <form class="flex flex-col items-center" action="">
+                        <legend class="text-xl">Peso</legend>
+                        <label for="peso">En kilogramos</label>
+                        <input class="border border-black w-60 h-10" type="text" name="peso" id="peso">
+                    </form>
+                    <button
+                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                        id="botonCalculate">Calculate</button>
+                </div>
+                <div
+                    class="w-72 h-80 shadow-black shadow-lg border border-black flex flex-col justify-center items-center">
+                    <form class="flex flex-col items-center" action="">
+                        <legend class="text-xl">Resultado</legend>
+                        <label for="resultado">Su índice de masa corporal es:</label>
+                        <input class="border border-black w-60 h-10" type="text" name="result" id="resultado"">
+                </form>
+            </div>
+        </div>
+    </article>
+    <article class=" mt-5">
+                        <h2 class="text-center text-2xl">Ejercicio 4</h2>
+                        <div class="flex justify-center gap-5 mt-2 mb-5">
+                            <div
+                                class=" w-72 h-80 shadow-black shadow-lg border border-black flex flex-col justify-around items-center">
+                                <form class="flex flex-col items-center justify-around" action="">
+                                    <legend class="text-xl">Monto moneda local</legend>
+                                    <label for="monedaLocal">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="monedaLocal"
+                                        id="monedaLocal" value="500">
+
+                                    <legend class="text-xl">Monto en dólares</legend>
+                                    <label for="monedaDolares">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="monedaDolares"
+                                        id="monedaDolares" value="1.00">
+                                </form>
+                            </div>
+
+                            <div
+                                class=" w-72 h-80 shadow-black shadow-lg border border-black flex flex-col justify-around items-center">
+                                <form class="flex flex-col items-center justify-around" action="">
+                                    <legend class="text-xl">Moneda Local</legend>
+                                    <label for="mLocal">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="mLocal" id="mLocal">
+
+                                    <legend class="text-xl">Dólares</legend>
+                                    <label for="mDolares">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="dolares"
+                                        id="mDolares">
+                                </form>
+                                <div>
+                                    <button
+                                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                                        id="buttonConvert">Convert</button>
+                                    <button
+                                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                                        id="buttonDelete">Delete</button>
+                                </div>
+                            </div>
+                            <div
+                                class=" w-72 h-80 shadow-black shadow-lg border border-black flex flex-col justify-around items-center">
+                                <form class="flex flex-col items-center justify-around" action="">
+                                    <legend class="text-xl">Dólares</legend>
+                                    <label for="dolar">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="dolar" id="dolar">
+
+                                    <legend class="text-xl">Moneda Local</legend>
+                                    <label for="local">Sin comas ni puntos</label>
+                                    <input class="border border-black w-60 h-10" type="text" name="local" id="local">
+                                </form>
+                                <div>
+                                    <button
+                                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                                        id="convert">Convert</button>
+                                    <button
+                                        class="border border-black shadow-black shadow-lg w-28 bg-yellow-400 p-1 text-2xl font-semibold"
+                                        id="delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+        </article>
+    </main>
+
+    <script src="./ejercicioIndividual.js"></script>
+</body>
+
+</html>
