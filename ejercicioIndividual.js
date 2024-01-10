@@ -51,7 +51,7 @@ document.getElementById('botonCalculate').addEventListener('click', function () 
     if (peso && estatura) {
         let estaturaEnMetros = estatura / 100;
         let imc = peso / (estaturaEnMetros * estaturaEnMetros);
-        resultadoInput.value = 'Su IMC es: ' + imc.toFixed(2);
+        resultadoInput.value = 'Su IMC es: ' + imc.toFixed(2);''
     } else {
         resultadoInput.value = 'Por favor, ingrese su peso y estatura.';
     }
@@ -61,41 +61,61 @@ document.getElementById('botonCalculate').addEventListener('click', function () 
 const tipoCambio = 500; // 1 dólar = 500 moneda local
 
 // Función para convertir de moneda local a dólares
-function convertirADolares() {
-    const monedaLocal = parseFloat(document.getElementById('mLocal').value);
-    if (!isNaN(monedaLocal)) {
-        const resultado = monedaLocal / tipoCambio;
-        document.getElementById('mDolares').value = resultado.toFixed(2);
+document.getElementById('buttonConvert').addEventListener('click', function convertirADolares() {
+    const monedaLocalInput = document.getElementById('mLocal');
+    const monedaLocal = monedaLocalInput.value.trim();
+
+    // Verificar si la cadena no contiene puntos ni comas
+    if (monedaLocal.indexOf('.') === -1 && monedaLocal.indexOf(',') === -1) {
+        // Convertir a número solo si no hay puntos ni comas
+        const monedaLocalNum = parseInt(monedaLocal);
+
+        if (!isNaN(monedaLocalNum)) {
+            const resultado = monedaLocalNum / tipoCambio;
+            document.getElementById('mDolares').value = resultado.toFixed(2);
+        } else {
+            alert('Por favor, ingrese un monto válido en moneda local.');
+        }
     } else {
-        alert('Por favor, ingrese un monto válido en moneda local.');
+        alert('Por favor, ingrese un monto válido en moneda local (sin puntos ni comas).');
+        monedaLocalInput.value = ''; // Limpiar el campo en caso de entrada no válida
     }
-}
+});
 
 // Función para borrar entradas
-function borrarEntradas() {
+document.getElementById('buttonDelete').addEventListener('click', function borrarEntradasDolares() {
     document.getElementById('mLocal').value = '';
     document.getElementById('mDolares').value = '';
-}
+})
 
-// Función para convertir de dólares a moneda local
-function convertirAMonedaLocal() {
-    const montoDolares = parseFloat(document.getElementById('dolar').value);
-    if (!isNaN(montoDolares)) {
-        const resultado = montoDolares * tipoCambio;
-        document.getElementById('local').value = resultado.toFixed(2);
+document.getElementById('convert').addEventListener('click', function convertirAMonedaLocal() {
+    const montoDolaresInput = document.getElementById('dolar');
+    const montoDolares = montoDolaresInput.value.trim();
+
+    // Verificar si la cadena no contiene puntos ni comas
+    if (montoDolares.indexOf('.') === -1 && montoDolares.indexOf(',') === -1) {
+        // Convertir a número solo si no hay puntos ni comas
+        const montoDolaresNum = parseFloat(montoDolares);
+        
+        if (!isNaN(montoDolaresNum)) {
+            const resultado = montoDolaresNum * tipoCambio;
+            document.getElementById('local').value = resultado.toFixed(2);
+        } else {
+            alert('Por favor, ingrese un monto válido en dólares.');
+        }
     } else {
-        alert('Por favor, ingrese un monto válido en dólares.');
+        alert('Por favor, ingrese un monto válido en dólares (sin puntos ni comas).');
+        montoDolaresInput.value = ''; // Limpiar el campo en caso de entrada no válida
     }
-}
+});
 
 // Función para borrar entradas
-function borrarEntradasDolares() {
+document.getElementById('delete').addEventListener('click', function borrarEntradasDolares() {
     document.getElementById('local').value = '';
     document.getElementById('dolar').value = '';
-}
+})
 
-// Asociar funciones a eventos
-document.getElementById('buttonConvert').addEventListener('click', convertirADolares);
-document.getElementById('buttonDelete').addEventListener('click', borrarEntradas);
-document.getElementById('convert').addEventListener('click', convertirAMonedaLocal);
-document.getElementById('delete').addEventListener('click', borrarEntradasDolares);
+
+
+
+
